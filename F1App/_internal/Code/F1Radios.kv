@@ -1,0 +1,263 @@
+#:kivy 1.0.9
+
+<MainPage>:
+    BoxLayout:
+        padding: 10
+        id: MainLayout
+	    orientation: 'vertical'
+        BoxLayout:
+            spacing: 5
+            size_hint: 1, 0.1
+            ToggleButton:
+                allow_no_selection: False
+                id: all_btn
+                state: 'down'
+                group: 'tabs'
+                canvas.after:
+                    Color:
+                        rgba: 0, 0, 0, 1
+                    Line:
+                        cap: 'square'
+                        joint: 'miter'
+                        width: root.all_width
+                        rectangle: (*self.pos, self.width, self.height)
+
+                background_color: (10, 0, 0, 10)
+                text: 'All'
+                font_size: 60
+                size_hint: 0.1, 1
+                pos_hint: {'left': 1}
+                on_state: root.all_tab()
+            ToggleButton:
+                allow_no_selection: False
+                group: 'tabs'
+                canvas.after:
+                    Color:
+                        rgba: 0, 0, 0, 1
+                    Line:
+                        cap: 'square'
+                        joint: 'miter'
+                        width: root.tyre_width
+                        rectangle: (*self.pos, self.width, self.height)
+                id: tyre_btn
+                background_color: (10, 0, 0, 10)
+                text: 'Tyre'
+                font_size: 60
+                size_hint: 0.1, 1
+                pos_hint: {'left': 1}
+                on_state: root.tyre_tab()
+            ToggleButton:
+                allow_no_selection: False
+                group: 'tabs'
+                canvas.after:
+                    Color:
+                        rgba: 0, 0, 0, 1
+                    Line:
+                        cap: 'square'
+                        joint: 'miter'
+                        width: root.pit_width
+                        rectangle: (*self.pos, self.width, self.height)
+                id: pit_btn
+                background_color: (10, 0, 0, 10)
+                text: 'pit'
+                font_size: 60
+                size_hint: 0.1, 1
+                pos_hint: {'left': 1}
+                on_state: root.pit_tab()
+            Label:
+                size_hint: 0.6, 1
+            Button:
+                canvas.after:
+                    Color:
+                        rgba: 0, 0, 0, 1
+                    Line:
+                        id: all_btn_line
+                        cap: 'square'
+                        joint: 'miter'
+                        width: 2
+                        rectangle: (*self.pos, self.width, self.height)
+                id: start_btn
+                background_color: (10, 0, 0, 10)
+                text: 'Start'
+                font_size: 60
+                size_hint: 0.1, 1
+                pos_hint: {'right': 1}
+                on_press: root.start()
+
+        GridLayout:
+
+            spacing: 5
+            id: driverLayout
+            rows: 5
+            cols: 4
+            DriverUI:
+                driverName: 'MAX VERSTAPPEN'
+                imageUrl: 'https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/M/MAXVER01_Max_Verstappen/maxver01.png.transform/2col/image.png'
+                driverNumber: '1'
+                audioChannel: '0'
+            DriverUI:
+                driverName: 'SERGIO PEREZ'
+                imageUrl: 'https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/S/SERPER01_Sergio_Perez/serper01.png.transform/2col/image.png'
+                driverNumber: '11'
+                audioChannel: '1'
+		        stt: True
+            DriverUI:
+                driverName: 'LEWIS HAMILTON'
+                imageUrl: 'https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/L/LEWHAM01_Lewis_Hamilton/lewham01.png.transform/2col/image.png'
+                driverNumber: '44'
+                audioChannel: '2'
+            DriverUI:
+                driverName: 'GEORGE RUSSELL'
+                imageUrl: 'https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/G/GEORUS01_George_Russell/georus01.png.transform/2col/image.png'
+                driverNumber: '63'
+                audioChannel: '3'
+            DriverUI:
+                driverName: 'CHARLES LECLERC'
+                imageUrl: 'https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/C/CHALEC01_Charles_Leclerc/chalec01.png.transform/2col/image.png'
+                driverNumber: '16'
+                audioChannel: '4'
+            DriverUI:
+                driverName: 'CARLOS SAINZ'
+                imageUrl: 'https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/C/CARSAI01_Carlos_Sainz/carsai01.png.transform/2col/image.png'
+                driverNumber: '55'
+                audioChannel: '5'
+            DriverUI:
+                driverName: 'LANDO NORRIS'
+                imageUrl: 'https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/L/LANNOR01_Lando_Norris/lannor01.png.transform/2col/image.png'
+                driverNumber: '4'
+                audioChannel: '6'
+            DriverUI:
+                driverName: 'OSCAR PIASTRI'
+                imageUrl: 'https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/O/OSCPIA01_Oscar_Piastri/oscpia01.png.transform/2col/image.png'
+                driverNumber: '81'
+                audioChannel: '7'
+            DriverUI:
+                driverName: 'FERNANDO ALONSO'
+                imageUrl: 'https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/F/FERALO01_Fernando_Alonso/feralo01.png.transform/2col/image.png'
+                driverNumber: '14'
+                audioChannel: '8'
+            DriverUI:
+                driverName: 'LANCE STROLL'
+                imageUrl: 'https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/L/LANSTR01_Lance_Stroll/lanstr01.png.transform/2col/image.png'
+                driverNumber: '18'
+                audioChannel: '9'
+            DriverUI:
+                driverName: 'PIERRE GASLY'
+                imageUrl: 'https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/P/PIEGAS01_Pierre_Gasly/piegas01.png.transform/2col/image.png'
+                driverNumber: '10'
+                audioChannel: '10'
+            DriverUI:
+                driverName: 'ESTEBAN OCON'
+                imageUrl: 'https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/E/ESTOCO01_Esteban_Ocon/estoco01.png.transform/2col/image.png'
+                driverNumber: '31'
+                audioChannel: '11'
+            DriverUI:
+                driverName: 'DANIEL RICCIARDO'
+                imageUrl: 'https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/D/DANRIC01_Daniel_Ricciardo/danric01.png.transform/2col/image.png'
+                driverNumber: '3'
+                audioChannel: '12'
+            DriverUI:
+                driverName: 'YUKI TSUNODA'
+                imageUrl: 'https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/Y/YUKTSU01_Yuki_Tsunoda/yuktsu01.png.transform/2col/image.png'
+                driverNumber: '22'
+                audioChannel: '13'
+            DriverUI:
+                driverName: 'KEVIN MAGNUSSEN'
+                imageUrl: 'https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/K/KEVMAG01_Kevin_Magnussen/kevmag01.png.transform/2col/image.png'
+                driverNumber: '20'
+                audioChannel: '14'
+            DriverUI:
+                driverName: 'NICO HULKENBERG'
+                imageUrl: 'https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/N/NICHUL01_Nico_Hulkenberg/nichul01.png.transform/2col/image.png'
+                driverNumber: '27'
+                audioChannel: '15'
+            DriverUI:
+                driverName: 'VALTTERI BOTTAS'
+                imageUrl: 'https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/V/VALBOT01_Valtteri_Bottas/valbot01.png.transform/2col/image.png'
+                driverNumber: '77'
+                audioChannel: '16'
+            DriverUI:
+                driverName: 'ZHOU GUANYU'
+                imageUrl: 'https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/G/GUAZHO01_Guanyu_Zhou/guazho01.png.transform/2col/image.png'
+                driverNumber: '24'
+                audioChannel: '17'
+            DriverUI:
+                driverName: 'ALEXANDER ALBON'
+                imageUrl: 'https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/A/ALEALB01_Alexander_Albon/alealb01.png.transform/2col/image.png'
+                driverNumber: '23'
+                audioChannel: '18'
+            DriverUI:
+                driverName: 'LOGAN SARGEANT'
+                imageUrl: 'https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/L/LOGSAR01_Logan_Sargeant/logsar01.png.transform/2col/image.png'
+                driverNumber: '2'
+                audioChannel: '19'
+
+<DriverUI>:
+    stt: False
+    size_hint: 1, 1
+    canvas.after:
+        Color:
+            rgba: 0, 0, 0, 1
+        Line:
+            cap: 'square'
+            joint: 'miter'
+            width: 2
+            rectangle: (*self.pos, self.width, self.height)
+    BoxLayout:
+
+        orientation: 'vertical'
+	    BoxLayout:
+	        padding: 10
+	        spacing: 10
+	        canvas.after:
+                Color:
+                    rgba: 255, 255, 255, 1
+                Line:
+                    cap: 'square'
+                    joint: 'miter'
+                    width: 1
+                    rectangle: (*self.pos, self.width, self.height)
+	        Label:
+	            padding: 10
+                canvas.after:
+                    Color:
+                        rgba: 255, 255, 255, 1
+                    Line:
+                        cap: 'square'
+                        joint: 'miter'
+                        width: 1
+                        rectangle: (*self.pos, self.width, self.height)
+
+	            text: root.driverName
+	            text_size: self.width, None
+	            halign: 'left'
+	            font_name: '_internal/Formula1-Bold_web.ttf'
+	            font_size: 30
+
+            ToggleButton:
+                size_hint: 0.2, 1
+                group: 'mute'
+                background_normal: '_internal/DriverFiles/mute-button.png'
+                background_down: '_internal/DriverFiles/mute-button-unmuted.png'
+                on_state: root.mute(root.audioChannel, self.state)
+        BoxLayout:
+            padding: 10
+	        spacing: 10
+	        canvas.after:
+                Color:
+                    rgba: 255, 255, 255, 1
+                Line:
+                    cap: 'square'
+                    joint: 'miter'
+                    width: 1
+                    rectangle: (*self.pos, self.width, self.height)
+	        AsyncImage:
+	            size_hint: 0.5, 1
+                source: root.imageUrl
+            Label:
+                text: root.transcript
+	            text_size: self.width, None
+	            halign: 'left'
+	            font_name: '_internal/Formula1-Regular-1.ttf'
+	            font_size: 15
+
